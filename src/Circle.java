@@ -32,12 +32,25 @@ public class Circle extends ClosedShape {
      * @param diameter The diameter of the circle.
      * @param colour The line colour or fill colour.
      * @param isFilled True if the circle is filled with colour, false if opaque.
+     * @param shouldFlash True if the shape is supposed to flash
+     * @param color2 The colour that the shape flashes between.
+     * @param insertionTime the time the shape is added to the view.
      */
     public Circle (int insertionTime, int x, int y, int vx, int vy, int diameter, Color colour, boolean isFilled, boolean shouldFlash, Color color2) {
     	super (insertionTime, x, y, vx, vy, colour, isFilled, shouldFlash, color2);
     	this.diameter = diameter;
     }
     
+    /**
+     * Creates a circle that does not flash.
+     * @param x The display component's x position.
+     * @param y The display component's y position.
+     * @param vx The display component's x velocity.
+     * @param vy The display component's y velocity.
+     * @param diameter The diameter of the circle.
+     * @param colour The line colour or fill colour.
+     * @param isFilled True if the circle is filled with colour, false if opaque.
+     */
     public Circle (int insertionTime, int x, int y, int vx, int vy, int diameter, Color colour, boolean isFilled) {
     	super (insertionTime, x, y, vx, vy, colour, isFilled, false, Color.WHITE);
     	this.diameter = diameter;
@@ -54,7 +67,8 @@ public class Circle extends ClosedShape {
     }
     
     /**
-     * @param Resets the diameter.
+     * resets the diameter.
+     * @param diameter the diameter of the circle.
      */
     public void setDiameter (int diameter) {
     	this.diameter = diameter;

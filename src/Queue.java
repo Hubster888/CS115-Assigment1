@@ -15,7 +15,6 @@ public class Queue<T>{
     QueueElement<T> front;
     QueueElement<T> rear;
     int size;
-    //TODO:  You need some data to store the queue.  Put the attributes here.
     
     /**
      * Constructs an empty Queue.
@@ -49,18 +48,14 @@ public class Queue<T>{
         if (isEmpty()){ 
             return;
         }
-  
         // Store previous front and move front one node ahead 
-        QueueElement<T> temp = this.front; 
+        //QueueElement<T> temp = this.front; 
         this.front = this.front.getNext(); 
-  
         // If front becomes NULL, then change rear also as NULL 
         if (this.front == null){
             this.rear = null;
-            
         } 
         this.size--;
-            
     }
     
     /**
@@ -92,5 +87,4 @@ public class Queue<T>{
             temp = temp.getNext();
         }
     }
-    
 }

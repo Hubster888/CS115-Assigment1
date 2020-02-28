@@ -5,7 +5,7 @@
 
 import java.util.NoSuchElementException;
 
-public class QueueTester {/*
+public class QueueTester {
 
 	public static void main(String[] args) {
 		//Method to test the Queue class.  This will cover some of the inputs of the general
@@ -81,6 +81,6 @@ public class QueueTester {/*
 		catch (NoSuchElementException e) {
 			System.out.println ("q.dequeue () exception is thrown as expected.");
 		}
-	}*/
+	}
 
 }

@@ -31,6 +31,8 @@ public class Oval extends ClosedShape {
 	 * @param height The height of the oval (in pixels).
 	 * @param colour The line colour or fill colour.
 	 * @param isFilled True if the oval is filled with colour, false if opaque.
+         * @param shouldFlash True if the shape is supposed to flash
+         * @param color2 The 2nd colour that the shape flashes between.
 	 */
 	public Oval (int insertionTime, int x, int y, int vx, int vy, int width, int height, Color colour, boolean isFilled, boolean shouldFlash, Color color2) {
 		super (insertionTime, x, y, vx, vy, colour, isFilled, shouldFlash, color2);
@@ -38,13 +40,24 @@ public class Oval extends ClosedShape {
 		this.height = height;
 	}
         
+        /**
+	 * Creates an oval that does not flash.
+	 * @param x The display component's x position.
+	 * @param y The display component's y position.
+	 * @param vx The display component's x velocity.
+	 * @param vy The display component's y velocity.
+	 * @param width The width of the oval (in pixels).
+	 * @param height The height of the oval (in pixels).
+	 * @param colour The line colour or fill colour.
+	 * @param isFilled True if the oval is filled with colour, false if opaque.
+	 */
         public Oval (int insertionTime, int x, int y, int vx, int vy, int width, int height, Color colour, boolean isFilled) {
 		super (insertionTime, x, y, vx, vy, colour, isFilled, false, Color.WHITE);
 		this.width = width;
 		this.height = height;
 	}
 
-	/**
+    /**
      * Method to convert an oval to a string.
      */
     public String toString () {

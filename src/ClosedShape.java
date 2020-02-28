@@ -72,6 +72,10 @@ public abstract class ClosedShape {
          */
         private Color color2;
         
+        /**
+         * A reference to the original colour so it is not lost 
+         * when flash() is called
+         */
         private Color tempColor;
 	
 	/**
@@ -80,6 +84,8 @@ public abstract class ClosedShape {
 	 * @param y the y position.
 	 * @param colour The line or fill colour.
 	 * @param isFilled True if the shape is filled, false if not.
+         * @param shouldFlash True if shape is supposed to flash
+         * @param color2 the second colour that the shape flashes between
 	 */
 	protected ClosedShape (int insertionTime, int x, int y, int vx, int vy, Color colour, boolean isFilled, boolean shouldFlash, Color color2) {
 		this.x = x;
@@ -90,18 +96,8 @@ public abstract class ClosedShape {
 		this.isFilled = isFilled;
 		this.insertionTime = insertionTime;
                 this.shouldFlash = shouldFlash;
-                if(!shouldFlash){
-                    this.color2 = Color.WHITE;
-                }else{
-                    this.color2 = color2;
-                }
+                this.color2 = color2;
                 this.tempColor = colour;
-                if(this.shouldFlash){
-                   // Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2),ae -> { flash();}));
-		//timeline.setCycleCount(Animation.INDEFINITE);
-		//timeline.play();
-                }
-                
 	}
 	
 	/**
@@ -270,23 +266,34 @@ public abstract class ClosedShape {
 	 	y += yVec;
 	 }
          
+         /**
+          * Switches the shapes colours
+          */
          public void flash(){
              if(getColour() == getTempColor()){
                      setColour(getColor2());
                  }else{
                      setColour(getTempColor());
                  }
-                 System.out.println(getColour());
          }
          
+         /**
+          * @return the 2nd colour of the shape
+          */
          public Color getColor2(){
              return this.color2;
          }
          
+         /**
+          * @return the temporary colour (Original colour)
+          */
          public Color getTempColor(){
              return this.tempColor;
          }
          
+         /**
+          * @return true if the shape is supposed to flash
+          */
          public Boolean getShouldFlash(){
          return this.shouldFlash;
          }
